@@ -1,0 +1,13 @@
+name = "PadeDiagonals"
+uuid = "047bf075-c37a-4bf6-9f5e-fbe5b89ca581"
+authors = ["Joris Pinkse <pinkse@gmail.com> and contributors"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1.11"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
