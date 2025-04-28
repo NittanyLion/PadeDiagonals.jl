@@ -1,5 +1,11 @@
 module PadeDiagonals
 
-# Write your package code here.
+using ForwardDiff
+
+include( "padepower.jl" )
+
+export pade
+
+
 
 end
