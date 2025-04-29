@@ -12,7 +12,7 @@ function (@main)( args )
     @variables x 
     J = 28
     function g( x )
-       log( big(1.0) + x )
+       log( BigFloat(1.0) + x )
     end
     f = Vector{Num}(undef, J + 1 )
     f[1] = g( x ) #atan( x )
@@ -21,7 +21,7 @@ function (@main)( args )
     for j ∈ 2:J+1 
         f[j] = expand_derivatives( D( f[j-1 ] ), true )
         println( f[j] )
-        γ[j] = build_function( f[j], x ; expression = Val{false} )( big( 0.0) ) / factorial( big( j - 1 ) )
+        γ[j] = build_function( f[j], x ; expression = Val{false} )( big( 0.0) ) / BigFloat( factorial( big( j - 1 ) ) )
     end
     println( γ )
     α, β = pade( γ; tol = 1.0e-32 )

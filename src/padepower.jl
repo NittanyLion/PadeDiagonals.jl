@@ -18,13 +18,13 @@ function pade!( α :: AbstractVector{T}, β :: AbstractVector{T}, γ :: Abstract
     for r ∈ 1:K
         A[ r, K + r - 1 ] = one( T )
     end
-    display( A )
-    λmin = GenericLinearAlgebra.eigvals( Symmetric( A'A ) )[1]
-    println( λmin )
+    # display( A )
+    # λmin = GenericLinearAlgebra.eigvals( Symmetric( A'A ) )[1]
+    # println( λmin )
     # λmin > tol || error( "Matrix A is not invertible (λmin = $λmin); tolerance is $tol." )
     # δ = A \ γ
     H = GenericLinearAlgebra.svd( A )
-    δ = H \ γ
+    δ = inv( A ) * γ
     β[2:K] = δ[1:K-1]
     α .= δ[K:end]
     return α, β
