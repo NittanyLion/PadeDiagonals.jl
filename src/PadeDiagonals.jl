@@ -1,6 +1,6 @@
 module PadeDiagonals
 
-using ForwardDiff
+using ForwardDiff, GenericLinearAlgebra
 
 include( "padepower.jl" )
 
